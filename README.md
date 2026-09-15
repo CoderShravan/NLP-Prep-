@@ -5,7 +5,10 @@ So we need to collect every single piece of information about a customers via ag
 ## Single AI Agent :-
 So if we make a single agent to handle this,it will perform inefficiently like it wont be able to manage everything on its own that well.It struggles to simultaneously analyze data,sentiment analysis and draft a decision without its reasoning becoming shallow.
 ## Different States for each Agent :-
-So even in multi agent if we make state seprately for each agent we
+So even in multi agent if we make state separately for each agent as it wont provide full context and can lead to contradiction it might cause conflict leading to poor perfomance.
+## Vector Database as the Entire Memory :-
+Storing every information as embeddings can lead to increased storage and retrieval costs,and loss of structured relationships between information.A better architecture separates current shared state,episodic memory,and summarized context,using vector retrieval only when semantic retrieval of past information is actually required. So its important to manage memory
+
 Smart Solution : Using Multi Agentic Model-
 Instead of one massive model doing it all, a Multi-Agent System divides the work into a team of specialized micro-models.In your Customer 360 scenario,for example, instead of one model trying to understand everything at once, you assign specialized roles.A Usage Agent looks only at app logins, a Support Agent looks only at angry tickets, and a Refiner Agent plays devil's advocate to double-check the final decision against company policy. This team-based approach allows the AI to work faster in parallel, catch each other's mistakes, and handle massive amounts of data without losing focus.
 Architecture
