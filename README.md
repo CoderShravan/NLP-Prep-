@@ -1,4 +1,4 @@
-# NLP-Prep-
+# NLP-Prep
 # My understanding :- 
 So we need to collect every single piece of information about a customers via agents and store it in one place.To achieve this,rather than a dashboard that displays numbers and charts and company just dumps data into it and a human doing all analyses we make an agentic ai to do this also there are pitfalls in using just one agent.
 # Some Methods to Avoid
