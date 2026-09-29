@@ -1,0 +1,9 @@
+INFERRED_STATE_TO_ACTION = {'no_significant_event': 'no_action', 'new_child_life_event': 'personalized_offer', 'marriage_or_relationship_change': 'personalized_offer', 'job_change_or_promotion': 'personalized_offer', 'job_loss_or_income_disruption': 'support_intervention', 'medical_hardship': 'support_intervention', 'financial_distress_general': 'support_intervention', 'relocation': 'personalized_offer', 'retirement_transition': 'personalized_offer', 'wealth_growth_or_windfall': 'relationship_manager_escalation', 'potential_fraud_or_takeover': 'compliance_fraud_hold', 'elder_vulnerability_or_scam_risk': 'relationship_manager_escalation', 'churn_risk': 'relationship_manager_escalation', 'small_business_cashflow_event': 'personalized_offer'}
+DEFAULT_SUBTYPES = {'new_child_life_event': 'childcare_savings_or_insurance_plan', 'marriage_or_relationship_change': 'joint_account_or_home_loan_offer', 'job_change_or_promotion': 'investment_or_savings_upgrade', 'job_loss_or_income_disruption': 'income_protection_payment_plan', 'medical_hardship': 'medical_hardship_payment_plan', 'financial_distress_general': 'hardship_payment_plan', 'relocation': 'home_loan_or_rental_offer', 'retirement_transition': 'retirement_savings_plan', 'wealth_growth_or_windfall': 'wealth_management_consultation', 'churn_risk': 'premium_retention_offer_and_fee_waiver'}
+
+def get_action_for_state(inferred_state: str, confidence_band: str) -> dict:
+    if confidence_band == 'low':
+        return {'action': 'no_action', 'action_subtype': None}
+    action = INFERRED_STATE_TO_ACTION.get(inferred_state, 'no_action')
+    subtype = DEFAULT_SUBTYPES.get(inferred_state)
+    return {'action': action, 'action_subtype': subtype}
